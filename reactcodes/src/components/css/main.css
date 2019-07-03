@@ -1,0 +1,581 @@
+.navigation_bar #login {
+	float: right;
+	margin-right: 50px;
+	font-family: Shabnam;
+	padding-left: 5px;
+	border-left: 2px solid lightgray;
+}
+.navigation_bar #register {
+	float: right;
+	margin-right: 5px;
+}
+.navigation_bar #help {
+	float: right;
+	margin-right: 40px;
+}
+.navigation_bar div{
+	background: linear-gradient(to right, #ff0000 0%, #9e00ad 100%);
+	height: 5px;
+	position: relative;
+	top: 45px;
+	width: 100%;
+}
+#part1 {
+	position: relative;
+	text-align: center;
+	height: 400px;
+	display: inline-block;
+}
+#part1 h2 {
+	position: absolute;
+	top: 30%;
+	right: 25%;
+	width: 50%;
+	margin: 0;
+}
+#part1 h6 {
+	position: absolute;
+	top: 50%;
+	right: 25%;
+	color: gray;
+	width: 50%;
+	margin: 0;
+}
+#part1 img {
+	height: 400px;
+	z-index: -1;
+	display: inline-block;
+	position: relative;
+	top: 10px;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+#part1 #first{
+	position: absolute;
+	top: 60%;
+	left: 20%;
+	width: 65%;
+	height: 70px;
+	background-color: white;
+	border-radius: 10px;
+	border: 1px solid lightgray;
+	z-index: 0;
+}
+#part1 #first img {
+	position: absolute;
+	left: 2.5%;
+	top: 24%; 
+	height: 45px;
+	width: 8%;
+	z-index: 1;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+#part1 #first select {
+	position: absolute;
+	right: 2%;
+	top: 24%;
+	width: 17%;
+	height: 45px;
+	z-index: 1;
+}
+#part1 fieldset {
+	position: absolute;
+	top: 15%;
+	width: 70%;
+	height:49px;
+	right: 20%;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 1px solid gray;
+	margin: 0;
+	padding: 0;
+}
+#part1 fieldset i {
+	position: absolute;
+	display: inline-block;
+	right: 5px;
+	top: 40%;
+	width: 20px;
+	color: lightgray;
+	margin: 0;
+}
+#part1 legend {
+	text-align: right;
+	color: gray;
+	font-size: 10px;
+}
+#part1 input {
+	outline-style: none;
+	border: none;
+	position: absolute;
+	right: 20px;
+	height: 70%;
+	width: 90%;
+	text-align: right;
+}
+#part1 p {
+	position: absolute;
+	top: 78%;
+	right: 15%;
+	color: rgb(140, 140, 140);
+	font-size: 8px;
+	text-decoration: underline;
+}
+#part2 {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	height: 300px;
+	background-color: rgb(250, 250, 250);
+}
+#part2 div {
+	position: relative;
+	text-align: right;
+}
+#part2 p {
+	color: gray;
+	margin-right: 15px;
+	height: 10%;
+}
+
+#part2 div div {
+	position: relative;
+	margin-left: 5%;
+	height: 200px;
+	background-color: white;
+}
+#part2 .left {
+	display: inline-block;
+	width: 66%;
+	z-index: 1;
+	float: left;
+	margin:0;
+}
+#part2 .left p {
+	position: absolute;
+	top: 20%;
+	font-size: 12px;
+}
+#part2 .right {
+	position: absolute;
+	right: 5px;
+	display: inline-block;
+	width: 30%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+#part2 img {
+	position: absolute;
+	right: 5px;
+	top: 20%;
+	width: 90%;
+	height: 50%;
+}
+#part3 {
+	position: relative;
+	height: 600px;
+	background-color: rgb(250, 250, 250);
+}
+#part3 h2 {
+	position: relative;
+	text-align: center;
+	top: 80px;
+}
+#part3 .table {
+	position: relative;
+	top: 50px;
+	left: 5%; 
+	width: 90%;
+	height: 450px;
+}
+#part3 .block {
+	box-shadow: 0 0 3px rgba(100,100,100,.3);
+	border-radius: 4px;
+	position: absolute;
+	width: 28%;
+	height: 80%;
+	top: 10%;
+	margin-left: 3%;
+	text-align: center;
+}
+#part3 .block:hover{
+ 	box-shadow: 0 0 11px rgba(33,33,33,.3);
+}
+#part3 .block:hover > input{
+ 	background-color: rgb(247, 230, 235)
+}
+#part3 .block div {
+	margin: 20px 0 20px 0;
+	width: 100%;
+}
+#part3 .block div img {
+	width: 80px;
+	height: 80px;
+	border-radius: 5px;
+}
+#part3 .block h3 {
+	color: black;
+}
+#part3 .block h6 {
+	position: absolute;
+	left: 28%;
+	top: 42%; 
+	color: gray;
+	display: inline;
+
+}
+#part3 .block h5 {
+	position: absolute;
+	left: 67%;
+	top: 42%; 
+	color: orange;
+	display: inline;
+}
+#part3 i {
+	display: inline-block;
+  	width: 10px;
+  	height: 10px;
+  	color: orange;
+  	
+  	margin-left: 5px;
+  	margin-right: 5px;
+}
+/*#part3 .block hr {
+	width: 50%;
+}*/
+#part3 .block p {
+	color: rgb(100, 100, 100);
+	font-size: 14px;
+}
+#part3 .block input {
+	position: absolute;
+	bottom: 20px;
+	right: 25%;
+	/*margin-top: 20px;*/
+	width: 50%;
+	height: 30px;
+	color: rgb(212, 2, 98);
+	border-radius: 20px;
+	border: 1px solid rgb(212, 2, 98);
+	font-size: 12px;
+}
+#part4 {
+	position: relative;
+	width: 100%;
+	height: 400px;
+}
+#part4 img {
+	position: relative;
+	width: 100%;
+	height: 450px;
+	z-index: -1;
+}
+#part4 h3 {
+	text-align: right;
+	position: absolute;
+	top: 5%;
+	right: 5%;
+}
+#part4 .table {
+	position: absolute;
+	top: 25%;
+	right: 3%;
+	min-width: 30%;
+}
+
+#part4 .block {
+	width: 60px;
+	height: 60px;
+}
+#part4 .block img {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	border-radius: 3px;
+
+}
+#part4 .block:hover {
+ 	box-shadow: 0 0 11px rgba(33,33,33,.3);
+}
+#part4 .r_name {
+	font-size: 10px;
+	width: 70px;
+	height: 20px;
+	padding: 0;
+	margin: 0; 
+}
+#part5 {
+	position: relative;
+	background-color: rgb(244, 249, 252);
+	max-height: 900px;
+	min-height: 900px;
+}
+#part5 h2 {
+	text-align: center;
+	font-size: 30px;
+	position: relative;
+	top: 40px;
+}
+#part5 p {
+	text-align: center;
+	font-size: 20px;
+	position: relative;
+	top: 30px;
+	color: rgb(60, 60, 60);
+	margin-bottom: 40px;
+}
+#part5 .table {
+	position: relative;
+	top: 30px;
+	width: 100%;
+	height: 300px;
+}
+#part5 .table th {
+	position: relative;
+}
+
+#part5 .block {
+	border-radius: 4px;
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	top: 5%;
+	right: 5%;
+	filter: brightness(60%);
+}
+#part5 .types{
+	position: absolute;
+	right: 30px;
+	bottom: 50px;
+	font-size: 30px;
+	color: white;
+	z-index: 1;
+}
+#part5 .table h6 {
+	display: inline-block;
+	position: absolute;
+	right: 30px;
+	bottom: 10px;
+	color: lightgray;
+	z-index: 1;
+}
+#part5 .block:hover + .types{
+	bottom: 60px;
+}
+#part5 .types:hover{
+	bottom: 60px;
+}
+#part5 .block:hover ~ h6{
+	bottom: 20px;
+}
+#part5 .types:hover ~ h6{
+	bottom: 20px;
+}
+#part5 span {
+	display: inline-block;
+	background-color: white;
+	border-radius: 20px;
+	margin: 10px 10px 10px 10px;
+	font-size: 20px;
+	padding: 5px 15px 5px 15px;
+	color: black;
+}
+#part5 span:hover {
+	box-shadow: 0 0 11px rgba(33,33,33,.3);
+}
+#part7 {
+	position: relative;
+	width: 100%;
+	height: 600px;
+	z-index: 0;
+}
+#part7 a {
+	text-decoration: none;
+}
+#part7 img {
+	position: absolute;
+	height: 600px;
+	z-index: -1;
+	width: 100%;
+}
+#part7 h2 {
+	position: absolute;
+	top: 150px;
+	right: 10%;
+}
+#part7 h5 {
+	position: absolute;
+	top: 185px;
+	right: 10%;
+	color: rgb(100, 100, 100);
+}
+#part7 #text_input {
+	position: relative;
+	float: right;
+	border: 1px solid lightgray;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	margin-right: 10%;
+	top: 250px;
+	width: 250px;
+	height: 46px;
+	outline-style: none;
+}
+#part7 #button {
+	position: relative;
+	float: right;
+	border: 1px solid lightgray;
+	background: linear-gradient(to right, #ff0000 0%, #9e00ad 100%);
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	top: 250px;
+	width: 250px;
+	height: 50px;
+	color: white;
+	/*outline-style: none;*/
+}
+#part7 h6 {
+	position: absolute;
+	top: 330px;
+	right: 10%;
+	color: rgb(150, 150, 150);
+}
+#part7 div {
+	position: absolute;
+	width: 55%;
+	height: 150px;
+	right: 9%;
+	bottom: 9%;
+}
+#part7 .download {
+	display: inline;
+	position: relative;
+	top: 15px;
+	width: 120px;
+	height: 40px;
+}
+#part6 {
+	position: relative;
+	width: 100%;
+}
+#part6 #up {
+	position: relative;
+	background-color: rgb(26, 26, 26);
+	height: 30%;
+	display: grid;
+	grid-template-areas:
+    'header'
+    'footer';
+}
+#part6 #up #header {
+	grid-area: header;
+	display: inline-block;
+	text-align: center;
+}
+#part6 #up #left {
+	display: inline-block;
+	text-align: center;
+}
+#part6 #up .block {
+	display: inline-block;
+	float: left;
+	width: 170px;
+	height: 170px;
+	padding: 0;
+	margin: 25px 10px 0px 10px;
+	list-style-type: none;
+}
+#part6 #up #first {
+	border-top: 3px solid rgb(255, 195, 0);
+}
+#part6 #up #second {
+	border-top: 3px solid rgb(254, 7, 19);
+}
+#part6 #up #third {
+	border-top: 3px solid rgb(212, 2, 98);
+}
+#part6 #up #forth {
+	border-top: 3px solid rgb(139, 1, 175);
+}
+
+#part6 #up .block .title {
+	color: white;
+	padding-top: 5px;
+	margin-bottom: 20px;
+}
+#part6 #up .block li {
+	margin: 10px 0 10px 0;
+	font-size: 13px;
+	color: rgb(137, 137, 137);
+	text-align: right;
+}
+
+#part6 #up ul img {
+	width: 120px;
+	height: 30px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+#part6 #up #right {
+	margin: 20px 10px 20px 10px;
+	display: inline-block;
+	width: 400px;
+}
+#part6 #up #right div {
+	text-align: right;
+}
+#part6 #up #right p {
+	color: rgb(137, 137, 137);
+	padding: 10px;
+}
+#part6 #up #right a {
+	padding: 10px;
+	text-decoration: none;
+	color: rgb(80, 138, 249);
+}
+#part6 #up #footer {
+	grid-area: footer;
+	text-align: center;
+}
+#part6 #up #footer div {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 10px; 
+}
+#part6 #up #footer div img {
+	width: 100px;
+	height: 100px;
+}
+#part6 #down {
+	position: relative;
+	background-color: rgb(18, 18, 18);
+	height: 100px;
+}
+#part6 #down p {
+	position: absolute;
+	float: right;
+	color: rgb(137, 137, 137);
+	top: 45px;
+	right: 2%;
+	width: 35%;
+}
+#part6 #down div {
+	position: absolute;
+	float: left;
+	margin: 0;
+	padding: 0;
+	left: 10px;
+}
+#part6 #down div a {
+	display: inline-block;
+	margin-top: 40px;
+	padding-left: 10px;
+}
+#part6 #down img {
+	width: 35px;
+	height: 35px;
+}
