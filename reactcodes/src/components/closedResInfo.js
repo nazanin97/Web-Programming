@@ -32,7 +32,7 @@ class ResInfo extends React.Component {
 				<p id="address">{this.props.item.address}</p>
 				</div>
 				<div id="button">
-					<button onClick={this.handleClick}>شروع سفارش</button>
+					
 				</div>
 			
 			</div>
