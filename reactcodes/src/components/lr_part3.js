@@ -20,7 +20,7 @@ library.add(
 
 function LR3() {
 	return (
-		<body>
+		<q>
 			<div id="lr_part3">
 			
 	        <a href="https://www.facebook.com"><i><FontAwesomeIcon icon={faFacebookF} /></i></a>
@@ -29,7 +29,7 @@ function LR3() {
 	        <a href="https://www.linkedin.com/"><i><FontAwesomeIcon icon={faLinkedinIn} /></i></a>
 	        <a href="url"><i><FontAwesomeIcon icon={faEnvelope} /></i></a>
         </div>
-		</body>
+		</q>
 	
 
 	);

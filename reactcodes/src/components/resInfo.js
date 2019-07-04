@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from './@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,9 +7,22 @@ class ResInfo extends React.Component {
 	constructor(props) {
 		super();
 		this.handleClick = this.handleClick.bind(this);
+		this.state = {
+			// id: this.props.item.id,
+			character: {}
+		}
 	}
 	handleClick() {
-		console.log("clicked");
+		return <Route to="/login" />;
+		fetch("http://demo2469824.mockable.io/best-restaurants")
+        .then(response => response.json())
+        .then(data => {
+			this.setState({
+				character: data
+			})
+		})
+		.catch((error) => console.error(error));
+		
 	}
 	render() {
 		const items = []
@@ -16,7 +30,9 @@ class ResInfo extends React.Component {
   			items.push(<span> {value} ● </span>)
 		}
 		return (
-			<div id="res">
+	
+				<a href='/login' style={{textDecoration:'none', outlineStyle:'none'}}>
+				<div id="res" onClick={this.handleClick}>
 				<div id="info">
 					<img id="reslogo" src={this.props.item.logo}/>
 					<h2 id="resname">{this.props.item.name}</h2>
@@ -32,10 +48,14 @@ class ResInfo extends React.Component {
 				<p id="address">{this.props.item.address}</p>
 				</div>
 				<div id="button">
-					<button onClick={this.handleClick}>شروع سفارش</button>
+					<button>شروع سفارش</button>
 				</div>
 			
 			</div>
+				</a>
+		
+		
+			
 		)
 	}
 }

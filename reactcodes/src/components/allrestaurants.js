@@ -1,5 +1,4 @@
 import React, { Component } from 'react'; 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './css/restaurants.css';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ResInfo from "./resInfo";
@@ -17,12 +16,35 @@ function Filter (props){
     );
 }
 class AllRestaurants extends Component {
+
+	setFilters() {
+		const temp = [];
+		for (let index = 0; index < this.state.items.length; index++) {			
+		    for(let index1 = 0; index1 < this.state.items[index].categories.length; index1++) {
+	            let el = this.state.items[index].categories[index1];
+	            if (!temp.includes(el))
+	      			temp.push(el);
+			}            
+		}
+		for (let index = 0; index < temp.length; index++) {
+			this.state.pageFilters.push(<Filter item={temp[index]} />);
+			this.state.unselectedFilters.push(<Filter item={temp[index]} />);
+		}
+		console.log("here:"+this.state.unselectedFilters.length);
+	}
 	constructor(props) {
 		super(props);
 		this.state = {
-			items: RestaurantDatas
+			items: RestaurantDatas,
+			pageFilters: [],
+			selectedFilters: [],
+			unselectedFilters: []
 		}
+		this.setFilters = this.setFilters.bind(this);
+		this.setFilters();
 	}
+	
+
 	// componentDidMount() {
 	// 	fetch("http://demo2469824.mockable.io/best-restaurants")
 	// 	.then(res => res.json())
@@ -37,7 +59,6 @@ class AllRestaurants extends Component {
 		//const resItem = this.state.items.map(item => <ResInfo item={item} />);
 		const res1 = [];
 		const res2 = [];
-		const temp = [];
 		for (let index = 0; index < this.state.items.length; index++) {
 			var time = new Date().getHours();
 			
@@ -46,15 +67,20 @@ class AllRestaurants extends Component {
 			}
 			else {
 				res2.push(<ClosedResInfo item={this.state.items[index]} />);
-			}
-
-		    for(let index1 = 0; index1 < this.state.items[index].categories.length; index1++) {
-	            let el = this.state.items[index].categories[index1];
-	            if (!temp.includes(el))
-	      			temp.push(el);
-			}            
+			}    
 		}
-		const pageFilters = temp.map(item => <Filter item={item}/>);
+		for (let index = 0; index < this.state.pageFilters.length; index++) {
+			
+			
+			// if(this.state.pageFilters[index].state.isChecked){
+			// 	this.state.selectedFilters.push(this.state.pageFilters[index]);
+			// }
+			// else {
+			// 	this.state.unselectedFilters.push(this.state.pageFilters[index]);
+			// }    
+		}
+		
+	
 	return(
 		<q>
 			<body>
@@ -83,8 +109,12 @@ class AllRestaurants extends Component {
 						<hr/>
 						<form method="get" action="/">
 							<input id="searchField2" type="text" placeholder="جست و جوی دسته بندی غذاها"/>
-							<div>
-							{pageFilters}
+							<div id="selectedFilters">
+								{this.state.selectedFilters}
+							</div>
+							<hr/>
+							<div id="unselectedFilters">
+								{this.state.unselectedFilters}
 							</div>
 						</form>	
 					</div>

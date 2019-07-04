@@ -2,13 +2,17 @@ import React from 'react';
 import { FontAwesomeIcon } from './@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-class ResInfo extends React.Component {
+class ClosedResInfo extends React.Component {
 	constructor(props) {
 		super();
 		this.handleClick = this.handleClick.bind(this);
 	}
 	handleClick() {
-		console.log("clicked");
+        fetch("http://demo2469824.mockable.io/best-restaurants")
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => console.error(error));
+		
 	}
 	render() {
 		const items = []
@@ -16,7 +20,7 @@ class ResInfo extends React.Component {
   			items.push(<span> {value} ● </span>)
 		}
 		return (
-			<div id="res">
+			<div id="res" onClick={this.handleClick}>
 				<div id="info">
 					<img id="reslogo" src={this.props.item.logo}/>
 					<h2 id="resname">{this.props.item.name}</h2>
@@ -40,4 +44,4 @@ class ResInfo extends React.Component {
 	}
 }
 
-export default ResInfo;
+export default ClosedResInfo;

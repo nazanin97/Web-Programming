@@ -118,16 +118,22 @@ body{
 #resname {
 	float: right;
 	margin: 10px;
+	color: black;
 }
 #stars {
 	position: absolute;
 	right: 85px;
 	top: 50px;
 }
+i {
+    color: orange;
+    padding: 2px;
+}
 #categories {
 	position: absolute;
 	right: 75px;
 	top: 80px;
+	color: black;
 }
 
 #address {
@@ -164,12 +170,10 @@ button:hover {
 	background-color: rgb(247, 230, 235);
 }
 #filters {
-
 	position: absolute;
 	left: 76%;
 	margin: 2%;
 	width: 20%;
-	/* height: 100%; */
 	border: 5 px solid black;
 	background-color: rgb(170, 199, 153);
 	padding-bottom: 50px;
@@ -178,23 +182,31 @@ button:hover {
 	text-align: center;
 }
 #filters #searchField2 {
-	border: 1px solid lightgray;
 	position: relative;
-	width: 80%;
+	width: 78%;
 	text-align: right;
 	height: 40px;
 	margin-right: 10%;
 	margin-left: 10%;
-	/* margin-bottom: 0; */
 }
-
-#checkboxAndName {
+#selectedFilters {
 	position: relative;
-	border: 1px solid lightgray;
-	width: 80%;
-	height: 40px;
+	margin-top: 5px;
 	margin-right: 10%;
 	margin-left: 10%;
+	background-color: red;
+	height: 70px;
+}
+hr {
+	border: 1px solid gray;
+}
+#unselectedFilters {
+	margin-right: 10%;
+	margin-left: 10%;
+}
+#checkboxAndName {
+	border: 1px solid lightgray;
+	height: 40px;
 	padding-right: 3px;
 }
 #checkboxAndName label {

@@ -1,0 +1,46 @@
+#foodComponent #container{
+    position: relative;
+    width: 350px;
+    height: 150px;
+    margin: 2%;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+#foodComponent #price {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+#foodComponent #title{
+    float: right;
+    left: 50px;
+    margin: 20px;
+    margin-bottom: 10px;
+
+}
+#foodComponent #description{
+    position: relative;
+    height: 40px;
+    text-align: right;
+    padding: 5px;
+    margin: 0;
+    color:gray;
+    font-size: 12px;
+    margin-right: 15px;
+
+}
+#foodComponent button {
+    position: relative;
+    display: inline-block;
+    margin-left: 65%;
+    width: 30%;
+    height: 30px;
+    top: -3px;
+    background-color: white;
+}
+#foodComponent button:hover {
+	background-color: rgb(247, 230, 235);
+}

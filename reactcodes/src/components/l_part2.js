@@ -15,7 +15,7 @@ library.add(
 
 function L2() {
 	return (
-		<body>
+		<q>
 			<div id="lr_part2">
 			<p>ورود</p>
 			<p>ایمیل و یا شماره تلفن خود را وارد کنید</p>
@@ -32,7 +32,7 @@ function L2() {
 			<a href="">رمز عبور خود را فراموش کردم</a>
 			<input id="button" type="button" value="ورود"/>
 		</div>
-		</body>
+		</q>
 	
 	
 	);

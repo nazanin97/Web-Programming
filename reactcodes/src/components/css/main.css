@@ -458,11 +458,13 @@
 	height: 40px;
 }
 #part6 {
-	/* position: relative; */
+	position: absolute;
 	width: 100%;
+	bottom: 2px;
 }
 #part6 #up {
 	position: relative;
+	width: 100%;
 	background-color: rgb(26, 26, 26);
 	height: 30%;
 	display: grid;
