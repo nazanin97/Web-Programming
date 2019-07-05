@@ -1,6 +1,5 @@
 import React from 'react';
 import { lighten, makeStyles, withStyles } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import ScrollableAnchor from 'react-scrollable-anchor';
 import { FontAwesomeIcon } from './@fortawesome/react-fontawesome';
@@ -13,6 +12,7 @@ import ResInfo3 from './resInfo3';
 import Comment from './comment';
 import Food from './food';
 import axios from 'axios/index'
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 const BorderLinearProgress = withStyles({
 	root: {
@@ -52,9 +52,14 @@ class Page3 extends React.Component {
 		super(props);
 		this.state = {
 			infos: rInf,
-			restaurant: {}
+			restaurant: {},
+			query_restaurant : "",
 		}
+		this.onSearchRestaurantChange = this.onSearchRestaurantChange.bind(this);
 	}
+	onSearchRestaurantChange(event){
+        this.setState({query_restaurant: event.target.value});
+    }
 	componentWillMount() {
         axios.get('http://localhost:3001/restaurants/' + this.props.match.params.id)
             .then((response) => {
@@ -73,6 +78,7 @@ class Page3 extends React.Component {
 		let open = this.state.restaurant.openingTime
 		let close = this.state.restaurant.closingTime
 		let comments = this.state.restaurant.comments
+		let foods = this.state.restaurant.foods
 		let avgRate = this.state.restaurant.averageRate
         let address = this.state.restaurant.address.addressLine
         let catNames = this.state.restaurant.categories.map(cat => cat.name)
@@ -85,19 +91,37 @@ class Page3 extends React.Component {
 		for (let index = 0; index < comments.length; index++) {
 			allComments.push(<Comment props={comments[index]}/>);
 		}
-
+		
 		const menus = [];
 		const menusReference = []
+		// for (let index = 0; index < foods.length; index++) {
+		
+		// 	if (foods[index].name.includes(this.state.query_restaurant)) {
+				
+		// 		for (let index = 0; index < catNames.length; index++) {
+		// 			var s = 'menuSection'+index;
+		// 			menus.push(<a href={'#'+s} id="menuItem" style={{textDecoration:'none'}}><p>{catNames[index]}</p></a>);
+		// 			menusReference.push(<ScrollableAnchor id={s}>
+		// 				<div style={{margin:'50px', backgroundColor:'rgb(240, 240, 240)'}}>
+		// 				<h3 style={{padding:'10px', position:'relative', textAlign:'right'}}>{catNames[index]}</h3>
+		// 				<div><FindFoods res={this.state.restaurant} item={catNames[index]} /></div>
+		// 				</div>
+		// 			</ScrollableAnchor>);
+		// 		}
+		// 	}    
+		// }
+
 		for (let index = 0; index < catNames.length; index++) {
 			var s = 'menuSection'+index;
 			menus.push(<a href={'#'+s} id="menuItem" style={{textDecoration:'none'}}><p>{catNames[index]}</p></a>);
 			menusReference.push(<ScrollableAnchor id={s}>
 				<div style={{margin:'50px', backgroundColor:'rgb(240, 240, 240)'}}>
-				<p style={{fontSize:'25px', marginLeft:'90%'}}>{catNames[index]}</p>
+				<h3 style={{padding:'10px', position:'relative', textAlign:'right'}}>{catNames[index]}</h3>
 				<div><FindFoods res={this.state.restaurant} item={catNames[index]} /></div>
 				</div>
 			</ScrollableAnchor>);
 		}
+		
 		
 		const orangeStars = [];
 		const blackStars = [];
@@ -118,14 +142,19 @@ class Page3 extends React.Component {
                     <a href='#section2' id="a2">اطلاعات رستوران</a>
                     <a href='#section1' id="a3">منوی رستوران</a>
 				</div>
-				<div>
+				<div style={{textAlign:'center'}}>
+		        	<input style={{ top:'-200px', marginRight:'20%',marginLeft:'20%', width:'60%', border:'1px solid lightgray', backgroundColor:'rgb(250, 250, 250)'}} onChange={this.onSearchRestaurantChange} id="searchField" type="text" placeholder="جست و جو در منوی این رستوران"/>
+	        	</div>
+				<hr/>
+				<div id="divsContainer">
 					<div id="nav_bar">
 						{menus}
 					</div>
+					<div id="westSide">
 					<ScrollableAnchor id={'section1'}>
           				<div>
 							{menusReference}
-					</div>
+						</div>
         			</ScrollableAnchor>
         			<ScrollableAnchor id={'section2'}>
           				<div id="information"> <Information name={name} address={address} open={open} close={close}/> </div>
@@ -184,6 +213,7 @@ class Page3 extends React.Component {
 						
 						</div>
         			</ScrollableAnchor>
+					</div>
 				</div>
 				<Footer />
 			</div>

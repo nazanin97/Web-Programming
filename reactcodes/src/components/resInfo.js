@@ -22,7 +22,7 @@ class ResInfo extends React.Component {
 		this.state.linkTo = '/restaurant/' + this.props.item._id;
 		const items = []
 		for (const [index, value] of this.props.item.categories.entries()) {
-  			items.push(<span> {value.name} ● </span>)
+  			items.push(<span style={{fontSize:'12px'}}> {value.name} ● </span>)
 		}
 		const orangeStars = [];
 		const blackStars = [];

@@ -164,13 +164,14 @@ class AllRestaurants extends Component {
 		)
 
 	return(
-		<div>
-			<body>
+		<a>
+			{/* <body> */}
             	<img id="topPic" src={require("./mocks/top.png")}/>
-	        	<p id="p1">{this.state.restaurants.length} restaurants service ... area</p>
+				
+	        	<p id="p1"><span style={{float:'right'}}>{this.state.restaurants.length}</span> <span>رستوران امکان سرویس دهی به «{this.state.city} {this.state.area}» را دارند</span></p>
 				<hr/>
 	        	<div id="search_container">
-		        	<input onChange={this.onSearchRestaurantChange} id="searchField" type="text" placeholder="جست و جوی رستوران در این محدوده"/>
+		        	<input style={{border:'1px solid lightgray', backgroundColor:'rgb(250, 250, 250)'}} onChange={this.onSearchRestaurantChange} id="searchField" type="text" placeholder="جست و جوی رستوران در این محدوده"/>
 	        	</div>
 	        	<div id="container">
 					<div id="allRestaurants">
@@ -202,9 +203,9 @@ class AllRestaurants extends Component {
 					</div>
 	        	</div>
 
-				</body>
+				{/* </body> */}
 			<Footer />
-		</div>
+		</a>
 		);
 	}
 }

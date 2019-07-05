@@ -11,8 +11,6 @@ class Information extends React.Component {
 		}
 	}
 	render(){
-		
-		
 		return (
 			<div id="infoSection">
                 <h2>اطلاعات رستوران</h2>

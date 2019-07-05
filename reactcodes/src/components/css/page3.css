@@ -133,13 +133,20 @@
     color: black;
     padding-right: 5px;
 }
-#page3 #nav_bar {
+#page3 #divsContainer {
     position: relative;
-    right: 40px;
-    top: -150px;
-    float: right;
+}
+#page3 #nav_bar {
+    position: absolute;
+    left: 85%;
     border-right: 1px solid lightgray;
-    /* width: 10%; */
+    width: 10%;
+    margin: 2%;
+}
+#page3 #westSide {
+    position: absolute;
+    width: 80%;
+    margin: 2%;
 }
 #page3 #menuItem {
     text-align: right;

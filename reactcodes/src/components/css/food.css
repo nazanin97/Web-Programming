@@ -4,8 +4,11 @@
     width: 350px;
     height: 150px;
     margin: 1%;
-    border: 1px solid gray;
-    border-radius: 5px;
+    /* border: 1px solid gray; */
+    border-radius: 7px;
+}
+#foodComponent #container:hover {
+    box-shadow: 0 0 10px rgba(33,33,33,.3);
 }
 #foodComponent #price {
     position: relative;
