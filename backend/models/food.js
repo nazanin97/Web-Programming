@@ -5,7 +5,11 @@ var FoodScheme = new mongoose.Schema({
 	name: String,
 	price: String,
 	description: Number,
-	foodSet: Number,
+	foodSet: Number
 });
 
 module.exports = mongoose.model('food', FoodScheme);
+// module.exports = {
+//     schema: FoodScheme,
+//     model: mongoose.model('Food', FoodScheme)
+// };

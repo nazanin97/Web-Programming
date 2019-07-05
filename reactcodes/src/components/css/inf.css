@@ -1,0 +1,41 @@
+#infoSection {
+    margin: 10px;
+    height: 400px;
+}
+#infoSection h2 {
+    margin: 30px;
+    text-align: right;
+}
+hr {
+    border-top: 1px solid rgb(230, 230, 230);
+    width: 90%;
+    position: relative;
+}
+#infoSection h3 {
+    text-align: right;
+    margin: 25px;
+}
+#infoSection h4 {
+    margin-right: 5%;
+    position: relative;
+    text-align: right;
+    color: rgb(50, 50, 50);
+    height: 50px;
+    padding-top: 5px;
+}
+#infoSection #p1 {
+    margin-right: 5%;
+    position: relative;
+    float: right;
+    text-align: right;
+    color: rgb(50, 50, 50);
+    padding-top: 5px;
+}
+#infoSection #time {
+    float: right;
+    margin-right: 5%;
+    margin-top: 10px;
+    color: rgb(50, 50, 50);
+    width: 300px;
+    
+}

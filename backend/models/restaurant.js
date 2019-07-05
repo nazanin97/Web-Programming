@@ -7,7 +7,7 @@ var RestaurantScheme = new mongoose.Schema({
 	openingTime: Number,
 	closingTime: Number,
 	averageRate: Number,
-	address: {
+	address: {/Users/nazanin/Desktop/S98-HW-2/reactcodes/src/components/resInfo.js
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'address'
 	},
@@ -22,8 +22,12 @@ var RestaurantScheme = new mongoose.Schema({
 	comments: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'comment'
-	}],
+	}]
 	
 });
 
 module.exports = mongoose.model('restaurant', RestaurantScheme);
+// module.exports = {
+//     schema: RestaurantScheme,
+//     model: mongoose.model('Restaurant', RestaurantScheme)
+// };

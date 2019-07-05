@@ -6,11 +6,11 @@ import LR4 from './lr_part4';
 
 function Login() {
 	return (
-		<q>
+		<div>
 			<L2 />
 			<LR3 />
 			<LR4 />
-		</q>
+		</div>
 	);
 }
 

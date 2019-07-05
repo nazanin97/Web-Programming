@@ -5,6 +5,8 @@ import MainPage from './components/mainPage';
 import Login from './components/login';
 import Register from './components/register';
 import AllRestaurants from './components/allrestaurants';
+import Comment from './components/comment';
+import Page3 from './components/page3';
 
 import './components/css/global.css';
 import './components/css/main.css';
@@ -31,8 +33,8 @@ function AppRouter() {
             <div></div>
         </ul>
        
-			<Route path="/" exact component={AllRestaurants} />
-			<Route path="/login" exact component={Login} />
+			<Route path="/" exact component={Page3} />
+			<Route path="/login" exact component={AllRestaurants} />
 			<Route path="/register" exact component={Register} />
         	
 	    </Router>

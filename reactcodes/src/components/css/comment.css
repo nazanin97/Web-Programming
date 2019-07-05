@@ -1,0 +1,44 @@
+#commentHolder {
+    position: relative;
+    border-top: 1px solid gray;
+    height: 200px;
+}
+
+#commentHolder #name {
+    position: relative;
+    text-align: right;
+    right: 10%;
+    top: 15px;
+   
+}
+#commentHolder #stars3 {
+    position: relative;
+    left: 5%;
+    top: -20px;
+}
+#commentHolder #stars3 span {
+    color: orange;
+    margin: 2px;
+}
+#commentHolder #description {
+    position: relative;
+    color: gray;
+    text-align: right;
+    margin-right: 50px;
+}
+#commentHolder #holder {
+    position: relative;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    top: 30px;
+
+}
+#commentHolder #time {
+    float: right;
+    color: gray;
+}
+#commentHolder #report {
+    float: left;
+    color: gray;
+}

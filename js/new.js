@@ -5,9 +5,9 @@ if (hold !== 'login' && hold !== 'register') {
     hold = 'login';
 }
 if (hold == 'login') {
-    document.getElementById('cssFile').setAttribute("href", "/Users/nazanin/Desktop/S98-HW-2/assets/login.css");    
+    document.getElementById('cssFile').setAttribute("href", "../assets/login.css");    
 } else {
-    document.getElementById('cssFile').setAttribute("href", "/Users/nazanin/Desktop/S98-HW-2/assets/register.css");
+    document.getElementById('cssFile').setAttribute("href", "../assets/register.css");
 }
 var myNode;
 var firstP;
@@ -200,12 +200,12 @@ function changePage(){
     instantiateElements();
     if (hold == 'login') {
         hold = 'register';
-        document.getElementById('cssFile').setAttribute("href", "/Users/nazanin/Desktop/S98-HW-2/assets/register.css"); 
+        document.getElementById('cssFile').setAttribute("href", "../assets/register.css"); 
         makeRegisterPage();
     }
     else {
         hold = 'login';
-        document.getElementById('cssFile').setAttribute("href", "/Users/nazanin/Desktop/S98-HW-2/assets/login.css");
+        document.getElementById('cssFile').setAttribute("href", "../assets/login.css");
         makeLoginPage();
     }
 }

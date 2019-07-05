@@ -29,6 +29,14 @@ class ResInfo extends React.Component {
 		for (const [index, value] of this.props.item.categories.entries()) {
   			items.push(<span> {value} ● </span>)
 		}
+		const orangeStars = [];
+		const blackStars = [];
+		for (let index = 0; index < Math.floor(this.props.item.averageRate); index++) {
+  			orangeStars.push(<i><FontAwesomeIcon icon={faStar} /></i>);
+		}
+		for (let index = Math.floor(this.props.item.averageRate); index < 5; index++) {
+			blackStars.push(<i id="blk"><FontAwesomeIcon icon={faStar} /></i>);
+	  	}
 		return (
 	
 				<a href='/login' style={{textDecoration:'none', outlineStyle:'none'}}>
@@ -37,11 +45,9 @@ class ResInfo extends React.Component {
 					<img id="reslogo" src={this.props.item.logo}/>
 					<h2 id="resname">{this.props.item.name}</h2>
 					<div id="stars">
-						<i><FontAwesomeIcon icon={faStar} /></i>
-						<i><FontAwesomeIcon icon={faStar} /></i>
-						<i><FontAwesomeIcon icon={faStar} /></i>
-						<i><FontAwesomeIcon icon={faStar} /></i>
-						<i><FontAwesomeIcon icon={faStar} /></i>
+						<span style={{color:'orange'}}>{this.props.item.averageRate}</span>
+						{orangeStars}
+						{blackStars}
 					</div>
 			
 				<div id="categories">{items}</div>

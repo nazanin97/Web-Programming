@@ -12,7 +12,7 @@ import Footer from "./footer";
 function MainPage() {
 	 
 	return ( 
-        <Router>
+        <div>
             <Part1 />
 	    	<Part2 />
 	  		<Part3 />
@@ -20,7 +20,7 @@ function MainPage() {
       		<Part5 />
       		<Part7 />
             <Footer />
-        </Router>  
+        </div>  
 	 );
 };
 export default MainPage;

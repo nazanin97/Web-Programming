@@ -11,7 +11,11 @@ var CommentScheme = new mongoose.Schema({
 	packaging: Number,
 	deliveryTime: Number,
 	text: String,
-	create_at: Date,
+	create_at: Number
 });
 
 module.exports = mongoose.model('comment', CommentScheme);
+// module.exports = {
+//     schema: CommentScheme,
+//     model: mongoose.model('Comment', CommentScheme)
+// };

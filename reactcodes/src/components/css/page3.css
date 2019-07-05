@@ -1,3 +1,10 @@
+#page3 {
+    position: relative;
+	font-family: 'Shabnam';
+	margin-left: 0;
+	margin-right: 0;
+	height: 3500px;
+}
 #page3 #topPic {
 	position: relative;
 	top: 5px;
@@ -57,10 +64,13 @@
     top: 110px;
     width: 40%;
 }
-#page3 i {
+#page3 #stars span {
     color: orange;
     padding: 2px;
 }
+#page3 #stars #blk {
+    color: black;
+} 
 #page3 #categories {
     position: absolute;
     width: 40%;
@@ -122,4 +132,44 @@
 }
 #page3 #menuItem:active {
     border-bottom: 2px solid rgb(212, 2, 98);
+}
+#page3 #stars2 {
+    /* position: absolute; */
+    text-align: center;
+    height: 100px;
+    margin-top: 40px;
+}
+#page3 #rate {
+    position: absolute;
+    left: 40%;
+    right: 40%;
+}
+#page3 #stars2 span {
+    color: orange;
+    padding: 4px;
+}
+#page3 #spec {
+    position: relative;
+    text-align: center;
+    margin: 20px;
+}
+#page3 #spec table {
+    position: relative;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-right: 15%;
+    margin-left: 15%;
+    border-collapse: collapse;
+}
+#page3 #spec tr {
+    height: 50px;
+    border-top: 1px solid lightgray;
+}
+#page3 #spec .c1 {
+    width: 200px;
+    text-align: left;
+    
+}
+#page3 #spec .c2 {
+    width: 200px;
 }

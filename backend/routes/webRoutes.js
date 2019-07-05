@@ -1,25 +1,25 @@
 var express = require('express');
-var app = express();
-var r = require('../controllers/restaurantController');
-var c = require('../controllers/commentController');
+var app1 = express();
+var r = require('../controller/restaurantController');
+var c = require('../controller/commentController');
 
-app.get('/', function (req, res){
-	r.getRestaurants(req, res);
+app1.get('/', function (req, res, next){
+	r.getRestaurants(req.query, res);
 })
 
-app.post('/', function (req, res) {
-   r.addRestaurant(req, res);
+app1.post('/', function (req, res, next) {
+   r.addRestaurant(req.body, res);
 })
 
-app.get('/:id', function (req, res){
+app1.get('/:id', function (req, res, next){
 	r.getRestaurantInfo(req, res);
 })
 
-app.get('/:id/comments', function (req, res){
-	c.getComments();
+app1.get('/:id/comments', function (req, res, next){
+	r.getComments();
 })
 
-app.post('/:id/comments', function (req, res) {
+app1.post('/:id/comments', function (req, res, next) {
    c.addComment(req, res);
 })
 

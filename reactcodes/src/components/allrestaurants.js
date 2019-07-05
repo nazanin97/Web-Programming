@@ -5,7 +5,7 @@ import ResInfo from "./resInfo";
 import ClosedResInfo from "./closedResInfo";
 import Footer from "./footer";
 import RestaurantDatas from "./restaurantDatas";
-import CheckBox from "./checkBox";
+// import CheckBox from "./checkBox";
 
 
 function Filter (props){
@@ -14,6 +14,30 @@ function Filter (props){
 			<CheckBox item={props.item}/>       
         </div>
     );
+}
+class CheckBox extends React.Component{
+    constructor(props) {
+      super();
+      this.state = {
+		  isChecked: false,
+		  
+		};
+	  this.handleChecked = this.handleChecked.bind(this);
+	  
+    }
+  
+    handleChecked () {
+	  this.setState({isChecked: !this.state.isChecked});
+	//   AllRestaurants.render();
+    }
+    render(){
+      return (
+	  	<div>
+         	<input id="filter" type="checkbox" onChange={ this.handleChecked }/>
+			 <label>{this.props.item}</label> 
+      	</div>
+	  )
+    }
 }
 class AllRestaurants extends Component {
 
@@ -82,7 +106,7 @@ class AllRestaurants extends Component {
 		
 	
 	return(
-		<q>
+		<div>
 			<body>
             	<img id="topPic" src={require("./mocks/top.png")}/>
 	        	<p id="p1">{this.state.items.length} restaurants service ... area</p>
@@ -120,9 +144,9 @@ class AllRestaurants extends Component {
 					</div>
 	        	</div>
 
-        	</body>
+				</body>
 			<Footer />
-		</q>
+		</div>
 		);
 	}
 }

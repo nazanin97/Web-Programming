@@ -2,10 +2,6 @@
 	display: inline-block;
 	margin: 0;
 }
-/*#mainPage .navigation_bar a #logo_pic {
-	height: 40px;
-	width: 120px;
-}*/
 .navigation_bar #login {
 	float: right;
 	margin-right: 50px;
@@ -212,7 +208,7 @@
  	box-shadow: 0 0 11px rgba(33,33,33,.3);
 }
 #part3 .block:hover > input{
- 	background-color: rgb(247, 230, 235)
+ 	background-color: rgb(247, 230, 235);
 }
 #part3 .block div {
 	margin: 20px 0 20px 0;
