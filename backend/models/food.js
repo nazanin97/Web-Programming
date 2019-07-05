@@ -1,15 +1,10 @@
 var mongoose = require('mongoose');
 
 var FoodScheme = new mongoose.Schema({
-	id: String,
 	name: String,
-	price: String,
-	description: Number,
-	foodSet: Number
+	price: Number,
+	description: String,
+	foodSet: String
 });
 
-module.exports = mongoose.model('food', FoodScheme);
-// module.exports = {
-//     schema: FoodScheme,
-//     model: mongoose.model('Food', FoodScheme)
-// };
+module.exports = mongoose.model('Food', FoodScheme);

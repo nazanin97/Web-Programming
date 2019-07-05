@@ -1,21 +1,16 @@
 var mongoose = require('mongoose');
 
 var CommentScheme = new mongoose.Schema({
-	id: String,
 	author: String,
 	quality: {
-		type: Number;
+		type: Number,
 		max: 5,
 		min: 0
 	},
 	packaging: Number,
 	deliveryTime: Number,
 	text: String,
-	create_at: Number
+	create_at: Date
 });
 
-module.exports = mongoose.model('comment', CommentScheme);
-// module.exports = {
-//     schema: CommentScheme,
-//     model: mongoose.model('Comment', CommentScheme)
-// };
+module.exports = mongoose.model('Comment', CommentScheme);

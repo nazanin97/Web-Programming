@@ -1,33 +1,19 @@
 var mongoose = require('mongoose');
+var Addresss = require('./address')
+var Category = require('./category')
+var Food = require('./food')
+var Comment = require('./comment')
 
 var RestaurantScheme = new mongoose.Schema({
-	id: String,
 	name: String,
 	logo: String,
 	openingTime: Number,
 	closingTime: Number,
 	averageRate: Number,
-	address: {/Users/nazanin/Desktop/S98-HW-2/reactcodes/src/components/resInfo.js
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'address'
-	},
-	categories: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'category'
-	}],
-	foods: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'food'
-	}],
-	comments: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'comment'
-	}]
-	
+	address: mongoose.model('Address').schema,
+    categories: [mongoose.model('Category').schema],
+    foods: [mongoose.model('Food').schema],
+    comments: [mongoose.model('Comment').schema]
 });
 
-module.exports = mongoose.model('restaurant', RestaurantScheme);
-// module.exports = {
-//     schema: RestaurantScheme,
-//     model: mongoose.model('Restaurant', RestaurantScheme)
-// };
+module.exports = mongoose.model('Restaurant', RestaurantScheme);
