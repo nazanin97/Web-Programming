@@ -50,8 +50,6 @@ class FindFoods extends React.Component {
 class Page3 extends React.Component {
 	constructor(props) {
 		super(props);
-		// console.log('P:');
-		// console.log(props)
 		this.state = {
 			infos: rInf,
 			restaurant: {}
@@ -61,8 +59,6 @@ class Page3 extends React.Component {
         axios.get('http://localhost:3001/restaurants/' + this.props.match.params.id)
             .then((response) => {
                 const restaurant = response.data
-                console.log('Data:')
-                console.log(restaurant)
                 this.setState({
                     restaurant: restaurant
                 })

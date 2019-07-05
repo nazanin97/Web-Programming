@@ -22,7 +22,7 @@ class Information extends React.Component {
                 <h4>ساعت سفارش گیری  <FontAwesomeIcon icon={faClock} /></h4>
                 
 				<p id="p1">همه روزه</p>
-                <p id="time">{this.props.open} to {this.props.close}</p>
+                <p id="time">{this.props.open} - {this.props.close}</p>
 				<hr/>
 			</div>
 			

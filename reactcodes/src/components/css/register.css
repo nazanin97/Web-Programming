@@ -7,7 +7,7 @@ body {
 position: relative;
 bottom: 15px;
 text-align: center;
-background-color: rgb(238, 238, 238);
+/* background-color: rgb(238, 238, 238); */
 height: 550px;
 width: 100%;
 }
@@ -29,11 +29,12 @@ font-size: 16px;
 }
 #lr_part2 #container {
 position: absolute;
+/* background-color: lightgray; */
 display: grid;
 grid-row-gap: 10px;
 grid-column-gap: 10px;
 width: 50%;
-height: 50%;
+height: 60%;
 /* top: 150px; */
 left: 25%;
 }

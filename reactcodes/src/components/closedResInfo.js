@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from './@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
+import img_logo from './mocks/logo.png'
+
 class ClosedResInfo extends React.Component {
 	constructor(props) {
 		super();
@@ -19,10 +21,10 @@ class ClosedResInfo extends React.Component {
 		
 	}
 	render() {
-		this.state.linkTo = '/restaurant/' + this.props.item.id;
+		this.state.linkTo = '/restaurant/' + this.props.item._id;
 		const items = [];
 		for (const [index, value] of this.props.item.categories.entries()) {
-			items.push(<span> {value} ● </span>);
+			items.push(<span> {value.name} ● </span>);
 		  }
 		const orangeStars = [];
 		const blackStars = [];
@@ -38,7 +40,7 @@ class ClosedResInfo extends React.Component {
 			<Link to={this.state.linkTo}>
 				<div id="res" onClick={this.handleClick}>
 				<div id="info">
-					<img id="reslogo" src={this.props.item.logo}/>
+					<img id="reslogo" src={img_logo}/>
 					<h2 id="resname">{this.props.item.name}</h2>
 					<div id="stars">
 						<span style={{color:'orange'}}>{this.props.item.averageRate}</span>
@@ -47,7 +49,7 @@ class ClosedResInfo extends React.Component {
 					</div>
 			
 				<div id="categories">{items}</div>
-				<p id="address">{this.props.item.address}</p>
+				<p id="address">{this.props.item.address.addressLine}</p>
 				</div>
 				<div id="button">
 					
