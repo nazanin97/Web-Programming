@@ -7,7 +7,7 @@ import './css/comment.css';
 
 class Comment extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
 		
 		this.state = {
 			// id: this.props.item.id,
@@ -16,11 +16,11 @@ class Comment extends React.Component {
 	}
 	
 	render() {
-		console.log("1:"+this.state.infos.quality);
-		console.log("2:"+this.state.infos.packaging);
-		console.log("3:"+this.state.infos.deliveryTime);
+		console.log("1:"+this.props.quality);
+		console.log("2:"+this.props.packaging);
+		console.log("3:"+this.props.deliveryTime);
 
-		const avg = (this.state.infos.quality + this.state.infos.packaging +this.state.infos.deliveryTime) / 3;
+		const avg = (this.props.quality + this.props.packaging +this.props.deliveryTime) / 3;
         const orangeStars = [];
 		const blackStars = [];
 		for (let index = 0; index < Math.floor(avg); index++) {
@@ -32,16 +32,16 @@ class Comment extends React.Component {
 		return (	
 			<div id="commentHolder">
                  
-                    <p id="name">اکبر</p>
+                    <p id="name">{this.props.author}</p>
                     <div id="stars3">
 						<span>{Math.floor(avg)}</span>
 						{orangeStars}
 						{blackStars}
 					</div>
 					
-					<p id="description">عالی بود</p>
+					<p id="description">{this.props.text}</p>
                     <div id="holder">
-                        <span id="time">time</span>
+                        <span id="time">{this.props.create_at}</span>
                         <a id="report">گزارش</a>
                     </div>
 					

@@ -5,35 +5,37 @@ import ResInfo from "./resInfo";
 import ClosedResInfo from "./closedResInfo";
 import Footer from "./footer";
 import RestaurantDatas from "./restaurantDatas";
+
 // import CheckBox from "./checkBox";
+// import filter from './Filtering';
+// import InputFilter from './inputFilter';
 
 
 function Filter (props){
     return(
         <div id="checkboxAndName">
-			<CheckBox item={props.item}/>       
+			<CheckBox myid={props.myid} action={props.action} item={props.item}/>       
         </div>
     );
 }
 class CheckBox extends React.Component{
-    constructor(props) {
-      super();
-      this.state = {
-		  isChecked: false,
-		  
-		};
-	  this.handleChecked = this.handleChecked.bind(this);
-	  
-    }
-  
-    handleChecked () {
-	  this.setState({isChecked: !this.state.isChecked});
-	//   AllRestaurants.render();
-    }
+	constructor(props){
+		super();
+		this.state = {
+			myid: props.myid,
+			isChecked: false
+		}
+		this.handleChecked = this.handleChecked.bind(this);
+	}
+	handleChecked(){
+		this.setState({
+			isChecked: !this.state.isChecked
+		});
+	}
     render(){
       return (
 	  	<div>
-         	<input id="filter" type="checkbox" onChange={ this.handleChecked }/>
+         	<input id="filter" type="checkbox" onChange={this.handleChecked} onClick={() => this.props.action(this.state.myid)}/>
 			 <label>{this.props.item}</label> 
       	</div>
 	  )
@@ -41,6 +43,31 @@ class CheckBox extends React.Component{
 }
 class AllRestaurants extends Component {
 
+	// (un)selectedFilter, filterMap
+	constructor(props) {
+		super(props);
+		this.state = {
+			isChecked: {},  
+			items: RestaurantDatas,
+			pageFilters: {},
+			query_restaurant : "",
+			query_category : "",
+			restaurants : [],
+			categories : {}
+		}
+		this.setFilters = this.setFilters.bind(this);
+
+		this.onSearchCategoryChange = this.onSearchCategoryChange.bind(this);
+		this.onSearchRestaurantChange = this.onSearchRestaurantChange.bind(this);
+		this.handleChecked = this.handleChecked.bind(this);
+		this.setFilters();
+	}
+	handleChecked (props1) {
+		this.setState(prev => {
+			prev.isChecked[props1] = !prev.isChecked[props1]
+			return prev
+		});
+	  }
 	setFilters() {
 		const temp = [];
 		for (let index = 0; index < this.state.items.length; index++) {			
@@ -50,37 +77,31 @@ class AllRestaurants extends Component {
 	      			temp.push(el);
 			}            
 		}
+		let checked = {}
+		let filters = {}
 		for (let index = 0; index < temp.length; index++) {
-			this.state.pageFilters.push(<Filter item={temp[index]} />);
-			this.state.unselectedFilters.push(<Filter item={temp[index]} />);
+			checked['i'+index] = false;
+			filters['i'+index] = <Filter myid={'i'+index} action={this.handleChecked} item={temp[index]} />
 		}
-		console.log("here:"+this.state.unselectedFilters.length);
-	}
-	constructor(props) {
-		super(props);
 		this.state = {
+			isChecked: checked,  
 			items: RestaurantDatas,
-			pageFilters: [],
-			selectedFilters: [],
-			unselectedFilters: []
+			pageFilters: filters,
+			query_restaurant : "",
+			query_category : "",
+			restaurants : [],
+			categories : {}	
 		}
-		this.setFilters = this.setFilters.bind(this);
-		this.setFilters();
 	}
-	
+	onSearchRestaurantChange(event){
+        this.setState({query_restaurant: event.target.value});
+    }
 
-	// componentDidMount() {
-	// 	fetch("http://demo2469824.mockable.io/best-restaurants")
-	// 	.then(res => res.json())
-	// 	.then((data) => {
-	// 		this.setState({items: json.restaurants});
-	// 		console.log(this.state.items);
-	// 	})
-	// 	.catch(console.log)
-	
-	// }
+    onSearchCategoryChange(event){
+        this.setState({query_category: event.target.value});
+	}
 	render() {
-		//const resItem = this.state.items.map(item => <ResInfo item={item} />);
+		
 		const res1 = [];
 		const res2 = [];
 		for (let index = 0; index < this.state.items.length; index++) {
@@ -93,18 +114,16 @@ class AllRestaurants extends Component {
 				res2.push(<ClosedResInfo item={this.state.items[index]} />);
 			}    
 		}
-		for (let index = 0; index < this.state.pageFilters.length; index++) {
-			
-			
-			// if(this.state.pageFilters[index].state.isChecked){
-			// 	this.state.selectedFilters.push(this.state.pageFilters[index]);
-			// }
-			// else {
-			// 	this.state.unselectedFilters.push(this.state.pageFilters[index]);
-			// }    
-		}
-		
-	
+		const a = [];
+		const b = [];
+		Object.keys(this.state.isChecked).forEach(key => {
+			if (this.state.isChecked[key] === true) {
+				a.push(this.state.pageFilters[key]);
+			} else {
+				b.push(this.state.pageFilters[key]);
+			}
+		});
+
 	return(
 		<div>
 			<body>
@@ -112,7 +131,7 @@ class AllRestaurants extends Component {
 	        	<p id="p1">{this.state.items.length} restaurants service ... area</p>
 				<hr/>
 	        	<div id="search_container">
-		        	<input id="searchField" type="text" placeholder="جست و جوی رستوران در این محدوده"/>
+		        	<input onChange={this.onSearchRestaurantChange} id="searchField" type="text" placeholder="جست و جوی رستوران در این محدوده"/>
 	        	</div>
 	        	<div id="container">
 					<div id="allRestaurants">
@@ -134,11 +153,11 @@ class AllRestaurants extends Component {
 						<form method="get" action="/">
 							<input id="searchField2" type="text" placeholder="جست و جوی دسته بندی غذاها"/>
 							<div id="selectedFilters">
-								{this.state.selectedFilters}
+								{a}
 							</div>
 							<hr/>
 							<div id="unselectedFilters">
-								{this.state.unselectedFilters}
+								{b}
 							</div>
 						</form>	
 					</div>

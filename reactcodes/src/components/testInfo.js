@@ -1,3 +1,5 @@
+import FoodT from './foodT';
+import MyComment from './commentTest';
 const restaurants =
 {
     id: "1",
@@ -9,7 +11,13 @@ const restaurants =
     ],
     address: "address line",
     openingTime: 10,
-    closingTime: 15
+    closingTime: 15,
+    foods: {
+        FoodT
+    },
+    comments: {
+        MyComment
+    }
 
 };
 export default restaurants;

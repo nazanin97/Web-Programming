@@ -1,0 +1,134 @@
+#manual_search_bar {
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #fff;
+    border-radius: .7rem;
+    -webkit-box-shadow: 0 .7rem 3rem rgba(0,0,0,.15);
+    box-shadow: 0 .7rem 3rem rgba(0,0,0,.15);
+    direction: rtl;
+}
+
+#manual_city_selection {
+    text-align: right;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    padding: .9rem;
+    color: #9a9a9a;
+    direction: rtl;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#manual_dropdown_icon {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+#manual_dropdown_icon svg{
+    vertical-align: middle;
+    width: 0.6rem;
+    transform: rotate(270deg);
+}
+
+#manual_city_input, #manual_city_selection select {
+    display: inline-block;
+    border: none;
+    font-size: 1rem;
+    font-family: Shabnam, serif;
+}
+
+.manual_city_selection select {
+    vertical-align: baseline;
+}
+
+.manual_city_selection select option[disabled] {
+    color: #aaa
+}
+
+#manual_area_selection {
+    display: inline-block;
+    padding: .6rem;
+    margin-top: -1.18rem;
+    vertical-align: middle;
+    border: 1px solid #dedede;
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+    color: #9a9a9a;
+    direction: rtl;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#manual_location_icon {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+#manual_location_icon svg{
+    vertical-align: middle;
+    width: 1.2rem;
+}
+
+#manual_area_input {
+    display: inline-block;
+    border: none;
+    width: 12rem;
+    font-size: 1rem;
+    font-family: Shabnam, serif;
+}
+
+#manual_button {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: -7px;
+    width: 58px;
+    height: 55px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    background-image: -webkit-linear-gradient(45deg, #d40062 30%, #8e00ab 90%);
+    background-image: -moz-linear-gradient(45deg, #d40062 30%, #8e00ab 90%);
+    background-image: -o-linear-gradient(45deg, #d40062 30%, #8e00ab 90%);
+    background-image: linear-gradient(45deg, #d40062 30%, #8e00ab 90%);
+}
+
+#manual_button i {
+    font-size: 1.4rem;
+    color: white;
+}
+
+@media (min-width:1px) {
+    #manual_area_input {
+        width: 12rem;
+    }
+}
+
+@media (min-width:769px) {
+    #manual_area_input {
+        width: 20rem;
+    }
+}
+
+@media (min-width:1025px) {
+    #manual_city_selection {
+        display: inline-block;
+        margin-top: -0.6rem;
+        margin-bottom: 0;
+    }
+
+    #manual_city_input {
+        width: 8rem;
+    }
+    #manual_area_input {
+        width: 28rem;
+    }
+}
+
+@media (min-width:1281px) {
+    .bestRated_item {
+        flex-basis: 25%;
+    }
+}

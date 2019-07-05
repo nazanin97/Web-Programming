@@ -6,7 +6,7 @@ import './css/inf.css';
 
 class Information extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
 		this.state = {
 		}
 	}
@@ -17,13 +17,13 @@ class Information extends React.Component {
 			<div id="infoSection">
                 <h2>اطلاعات رستوران</h2>
                 <hr/>
-                <h3>res name</h3>
-				<h4>آدرس  <FontAwesomeIcon icon={faMapMarkerAlt} /></h4>
+                <h3>{this.props.name}</h3>
+				<h4>{this.props.address} <FontAwesomeIcon icon={faMapMarkerAlt} /></h4>
                 <h4>ساعت سفارش گیری  <FontAwesomeIcon icon={faClock} /></h4>
-                <hr/>
+                
 				<p id="p1">همه روزه</p>
-                <p id="time">زمان</p>
-				
+                <p id="time">{this.props.open} to {this.props.close}</p>
+				<hr/>
 			</div>
 			
 		)

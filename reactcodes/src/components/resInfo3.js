@@ -7,24 +7,19 @@ import './css/page3.css';
 
 class ResInfo3 extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
 		
 		this.state = {
 			// id: this.props.item.id,
-			items: testInfo
+			// items: testInfo
 		}
 	}
 	
-	render() {
-		const c = []
-		for (let index = 0; index < this.state.items.categories.length; index++) {
-  			c.push(<a> {this.state.items.categories[index]} ● </a>)
-        }
-        
+	render() {    
         var order;
         var time = new Date().getHours();
 		var circle;
-		if(this.state.items.openingTime <= time && this.state.items.closingTime > time){
+		if(this.props.openingTime <= time && this.props.closingTime > time){
 			order = <span>سفارش می پذیرد</span>;
 			circle = <span style={{color:'green'}}><FontAwesomeIcon icon={faCircle} /></span>;
 		}
@@ -34,37 +29,29 @@ class ResInfo3 extends React.Component {
 		}
 		const orangeStars = [];
 		const blackStars = [];
-		for (let index = 0; index < Math.floor(this.state.items.averageRate); index++) {
+		for (let index = 0; index < Math.floor(this.props.averageRate); index++) {
   			orangeStars.push(<span><FontAwesomeIcon icon={faStar} /></span>);
 		}
-		for (let index = Math.floor(this.state.items.averageRate) ; index < 5; index++) {
+		for (let index = Math.floor(this.props.averageRate) ; index < 5; index++) {
 			blackStars.push(<span id="blk"><FontAwesomeIcon icon={faStar} /></span>);
 	  	}
-		return (
-	
-			
+		return (	
 			<div id="res">
 				<div id="info">
                     <p id="order">{order} {circle}</p>
 
-					<img id="reslogo" src={this.state.items.logo}/>
-					<h2 id="resname">{this.state.items.name}</h2>
+					<div id="imgHolder"><img id="reslogo" src={this.props.logo}/></div>
+					<h2 id="resname">{this.props.name}</h2>
 					<div id="stars">
-					<span style={{color:'orange'}}>{this.state.items.averageRate}</span>
+					<span style={{color:'orange'}}>{this.props.averageRate}</span>
 						{orangeStars}
 						{blackStars}
 					</div>
 			
-				<div id="categories">{c}</div>
-				<p id="address">{this.state.items.address}</p>
+				<div id="categories">{this.props.cats}</div>
+				<p id="address">{this.props.address}</p>
 				</div>
-				
-			
-			</div>
-	
-		
-		
-			
+			</div>	
 		)
 	}
 }

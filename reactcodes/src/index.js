@@ -7,9 +7,11 @@ import Register from './components/register';
 import AllRestaurants from './components/allrestaurants';
 import Comment from './components/comment';
 import Page3 from './components/page3';
+import AreaSelectionBar from './components/search1';
 
 import './components/css/global.css';
 import './components/css/main.css';
+import Nazanin from './components/nazanin_axios';
 
 function AppRouter() {
 	return (
@@ -22,7 +24,7 @@ function AppRouter() {
                 
             </a>
             <li id="login">   
-                <Link to="/login">ورود</Link>
+                <Link to="/restaurants">ورود</Link>
             </li>
             <li id="register">
                 <Link to="/register">عضویت</Link>
@@ -33,9 +35,13 @@ function AppRouter() {
             <div></div>
         </ul>
        
-			<Route path="/" exact component={Page3} />
-			<Route path="/login" exact component={AllRestaurants} />
-			<Route path="/register" exact component={Register} />
+			<div>
+                <Route path="/" exact component={MainPage} />
+                <Route path="/restaurants" exact component={AllRestaurants} />
+                <Route path="/register" exact component={Register} />
+                <Route path="/restaurant/:id" exact component={Page3} />
+                <Route path="/test/:id" exact component={Nazanin} />
+            </div>
         	
 	    </Router>
 	)

@@ -9,22 +9,26 @@ class ResInfo extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 		this.state = {
 			// id: this.props.item.id,
-			character: {}
+			character: {},
+			linkTo: ""
+			
 		}
 	}
 	handleClick() {
-		return <Route to="/login" />;
-		fetch("http://demo2469824.mockable.io/best-restaurants")
-        .then(response => response.json())
-        .then(data => {
-			this.setState({
-				character: data
-			})
-		})
-		.catch((error) => console.error(error));
+		// <Link to="/restaurants" />;
+		// fetch("mongodb://localhost:27017/reyhoonDatabase")
+        // .then(response => response.json())
+        // .then(data => {
+		// 	this.setState({
+		// 		character: data
+		// 	})
+		// 	console.log(data);
+		// })
+		// .catch((error) => console.error(error));
 		
 	}
 	render() {
+		this.state.linkTo = '/restaurant/' + this.props.item.id;
 		const items = []
 		for (const [index, value] of this.props.item.categories.entries()) {
   			items.push(<span> {value} ● </span>)
@@ -38,30 +42,28 @@ class ResInfo extends React.Component {
 			blackStars.push(<i id="blk"><FontAwesomeIcon icon={faStar} /></i>);
 	  	}
 		return (
-	
-				<a href='/login' style={{textDecoration:'none', outlineStyle:'none'}}>
-				<div id="res" onClick={this.handleClick}>
-				<div id="info">
-					<img id="reslogo" src={this.props.item.logo}/>
-					<h2 id="resname">{this.props.item.name}</h2>
-					<div id="stars">
-						<span style={{color:'orange'}}>{this.props.item.averageRate}</span>
-						{orangeStars}
-						{blackStars}
+			<Link to={this.state.linkTo}>
+				<a style={{textDecoration:'none', outlineStyle:'none'}}>
+					<div id="res" onClick={this.handleClick}>
+					<div id="info">
+						<img id="reslogo" src={this.props.item.logo}/>
+						<h2 id="resname">{this.props.item.name}</h2>
+						<div id="stars">
+							<span style={{color:'orange'}}>{this.props.item.averageRate}</span>
+							{orangeStars}
+							{blackStars}
+						</div>
+				
+					<div id="categories">{items}</div>
+					<p id="address">{this.props.item.address}</p>
 					</div>
-			
-				<div id="categories">{items}</div>
-				<p id="address">{this.props.item.address}</p>
-				</div>
-				<div id="button">
-					<button>شروع سفارش</button>
-				</div>
-			
-			</div>
+					<div id="button">
+						<button>شروع سفارش</button>
+					</div>
+				
+					</div>
 				</a>
-		
-		
-			
+			</Link>
 		)
 	}
 }

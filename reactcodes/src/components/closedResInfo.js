@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from './@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,17 +8,18 @@ class ClosedResInfo extends React.Component {
 		super();
 		this.handleClick = this.handleClick.bind(this);
 		this.state = {
-			
+			linkTo: ""
 		}
 	}
 	handleClick() {
-        fetch("http://demo2469824.mockable.io/best-restaurants")
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch((error) => console.error(error));
+        // fetch("mongodb://localhost:27017/reyhoonDatabase")
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+        // .catch((error) => console.error(error));
 		
 	}
 	render() {
+		this.state.linkTo = '/restaurant/' + this.props.item.id;
 		const items = [];
 		for (const [index, value] of this.props.item.categories.entries()) {
 			items.push(<span> {value} ● </span>);
@@ -33,7 +35,8 @@ class ClosedResInfo extends React.Component {
 		
 		
 		return (
-			<div id="res" onClick={this.handleClick}>
+			<Link to={this.state.linkTo}>
+				<div id="res" onClick={this.handleClick}>
 				<div id="info">
 					<img id="reslogo" src={this.props.item.logo}/>
 					<h2 id="resname">{this.props.item.name}</h2>
@@ -51,6 +54,8 @@ class ClosedResInfo extends React.Component {
 				</div>
 			
 			</div>
+			</Link>
+	
 		)
 	}
 }
