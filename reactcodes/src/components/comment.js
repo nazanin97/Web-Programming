@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from './@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import mycomment from "./commentTest";
 import './css/comment.css';
 
 
@@ -11,16 +10,14 @@ class Comment extends React.Component {
 		
 		this.state = {
 			// id: this.props.item.id,
-			infos: mycomment
+			// infos: mycomment
 		}
 	}
 	
 	render() {
-		console.log("1:"+this.props.quality);
-		console.log("2:"+this.props.packaging);
-		console.log("3:"+this.props.deliveryTime);
+		
 
-		const avg = (this.props.quality + this.props.packaging +this.props.deliveryTime) / 3;
+		const avg = (this.props.item.quality + this.props.item.packaging +this.props.item.deliveryTime) / 3;
         const orangeStars = [];
 		const blackStars = [];
 		for (let index = 0; index < Math.floor(avg); index++) {
@@ -32,16 +29,16 @@ class Comment extends React.Component {
 		return (	
 			<div id="commentHolder">
                  
-                    <p id="name">{this.props.author}</p>
+                    <p id="name">{this.props.item.author}</p>
                     <div id="stars3">
 						<span>{Math.floor(avg)}</span>
 						{orangeStars}
 						{blackStars}
 					</div>
 					
-					<p id="description">{this.props.text}</p>
+					<p id="description">{this.props.item.text}</p>
                     <div id="holder">
-                        <span id="time">{this.props.create_at}</span>
+                        <span id="time">{this.props.item.create_at}</span>
                         <a id="report">گزارش</a>
                     </div>
 					

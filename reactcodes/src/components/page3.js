@@ -34,9 +34,9 @@ class FindFoods extends React.Component {
 	}
 	render(){
 		const tmp = [];
-		for (let index = 0; index < this.props.res.foods.length; index++) {
-			if(this.props.res.foods[index].foodSet === this.props.item){
-				tmp.push(<Food item={this.props.res.foods[index]}/>);
+		for (let index = 0; index < this.props.res.length; index++) {
+			if(this.props.res[index].foodSet === this.props.item){
+				tmp.push(<Food item={this.props.res[index]}/>);
 			}
 		}
 		return(
@@ -70,6 +70,7 @@ class Page3 extends React.Component {
             })
     }
 	render(){
+
 		if (!this.state.restaurant.name) {
             return <br/>
 		}
@@ -77,7 +78,7 @@ class Page3 extends React.Component {
 		let name = this.state.restaurant.name
 		let open = this.state.restaurant.openingTime
 		let close = this.state.restaurant.closingTime
-		let comments = this.state.restaurant.comments
+		let comments1 = this.state.restaurant.comments
 		let foods = this.state.restaurant.foods
 		let avgRate = this.state.restaurant.averageRate
         let address = this.state.restaurant.address.addressLine
@@ -88,28 +89,17 @@ class Page3 extends React.Component {
             cats += ' * '
 		});
 		const allComments = [];
-		for (let index = 0; index < comments.length; index++) {
-			allComments.push(<Comment props={comments[index]}/>);
+		for (let index = 0; index < comments1.length; index++) {
+			allComments.push(<Comment item={comments1[index]}/>);
 		}
+
+		foods = foods.filter(f =>{
+			let con = f.name.includes(this.state.query_restaurant)
+			return con
+		})
 		
 		const menus = [];
 		const menusReference = []
-		// for (let index = 0; index < foods.length; index++) {
-		
-		// 	if (foods[index].name.includes(this.state.query_restaurant)) {
-				
-		// 		for (let index = 0; index < catNames.length; index++) {
-		// 			var s = 'menuSection'+index;
-		// 			menus.push(<a href={'#'+s} id="menuItem" style={{textDecoration:'none'}}><p>{catNames[index]}</p></a>);
-		// 			menusReference.push(<ScrollableAnchor id={s}>
-		// 				<div style={{margin:'50px', backgroundColor:'rgb(240, 240, 240)'}}>
-		// 				<h3 style={{padding:'10px', position:'relative', textAlign:'right'}}>{catNames[index]}</h3>
-		// 				<div><FindFoods res={this.state.restaurant} item={catNames[index]} /></div>
-		// 				</div>
-		// 			</ScrollableAnchor>);
-		// 		}
-		// 	}    
-		// }
 
 		for (let index = 0; index < catNames.length; index++) {
 			var s = 'menuSection'+index;
@@ -117,7 +107,7 @@ class Page3 extends React.Component {
 			menusReference.push(<ScrollableAnchor id={s}>
 				<div style={{margin:'50px', backgroundColor:'rgb(240, 240, 240)'}}>
 				<h3 style={{padding:'10px', position:'relative', textAlign:'right'}}>{catNames[index]}</h3>
-				<div><FindFoods res={this.state.restaurant} item={catNames[index]} /></div>
+				<div><FindFoods res={foods} item={catNames[index]} /></div>
 				</div>
 			</ScrollableAnchor>);
 		}
@@ -136,14 +126,17 @@ class Page3 extends React.Component {
 			
 			<div id="page3">
 				<img id="topPic" src={require("./mocks/top.png")}/>
-				<ResInfo3 props={this.state.restaurant} cats={cats} address={address}/>
-				<div id="sections">
-					<a href='#section3' id="a1">نظرات کاربران</a>
-                    <a href='#section2' id="a2">اطلاعات رستوران</a>
-                    <a href='#section1' id="a3">منوی رستوران</a>
+				<ResInfo3 c={this.state.restaurant} cats={cats} address={address}/>
+				<div id="sticker">
+					<div id="sections">
+						<a href='#section3' id="a1">نظرات کاربران</a>
+                   	 	<a href='#section2' id="a2">اطلاعات رستوران</a>
+                    	<a href='#section1' id="a3">منوی رستوران</a>
+					</div>
 				</div>
+				
 				<div style={{textAlign:'center'}}>
-		        	<input style={{ top:'-200px', marginRight:'20%',marginLeft:'20%', width:'60%', border:'1px solid lightgray', backgroundColor:'rgb(250, 250, 250)'}} onChange={this.onSearchRestaurantChange} id="searchField" type="text" placeholder="جست و جو در منوی این رستوران"/>
+		        	<input style={{ marginRight:'20%',marginLeft:'20%', width:'60%', border:'1px solid lightgray', backgroundColor:'rgb(250, 250, 250)'}} onChange={this.onSearchRestaurantChange} id="searchField" type="text" placeholder="جست و جو در منوی این رستوران"/>
 	        	</div>
 				<hr/>
 				<div id="divsContainer">

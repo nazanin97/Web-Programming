@@ -15,10 +15,11 @@ class ResInfo3 extends React.Component {
 	}
 	
 	render() {    
+		
         var order;
         var time = new Date().getHours();
 		var circle;
-		if(this.props.openingTime <= time && this.props.closingTime > time){
+		if(this.props.c.openingTime <= time && this.props.c.closingTime > time){
 			order = <span>سفارش می پذیرد</span>;
 			circle = <span style={{color:'green'}}><FontAwesomeIcon icon={faCircle} /></span>;
 		}
@@ -28,10 +29,10 @@ class ResInfo3 extends React.Component {
 		}
 		const orangeStars = [];
 		const blackStars = [];
-		for (let index = 0; index < Math.floor(this.props.averageRate); index++) {
+		for (let index = 0; index < Math.floor(this.props.c.averageRate); index++) {
   			orangeStars.push(<span><FontAwesomeIcon icon={faStar} /></span>);
 		}
-		for (let index = Math.floor(this.props.averageRate) ; index < 5; index++) {
+		for (let index = Math.floor(this.props.c.averageRate) ; index < 5; index++) {
 			blackStars.push(<span id="blk"><FontAwesomeIcon icon={faStar} /></span>);
 	  	}
 		return (	
@@ -39,10 +40,10 @@ class ResInfo3 extends React.Component {
 				<div id="info">
                     <p id="order">{order} {circle}</p>
 
-					<div id="imgHolder"><img id="reslogo" src={this.props.logo}/></div>
-					<h2 id="resname">{this.props.name}</h2>
+					<div id="imgHolder"><img id="reslogo" src={this.props.c.logo}/></div>
+					<h2 id="resname">{this.props.c.name}</h2>
 					<div id="stars">
-					<span style={{color:'orange'}}>{this.props.averageRate}</span>
+					<span style={{color:'orange'}}>{this.props.c.averageRate}</span>
 						{orangeStars}
 						{blackStars}
 					</div>

@@ -3,7 +3,7 @@
 	font-family: 'Shabnam';
 	margin-left: 0;
 	margin-right: 0;
-	height: 3500px;
+	height: 3900px;
 }
 #page3 #topPic {
 	position: relative;
@@ -101,14 +101,22 @@
 	color: gray;
 	font-size: 15px;
 }
+#page3 #sticker{
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    margin-top: -220px;
+    z-index: 1;
+}
 #page3 #sections {
-    position: relative;
+    /* position: relative; */
     /* position: sticky; */
     /* top: 100px; */
     z-index: 1;
-    top: -210px;
+    /* top: 0; */
     width: 60%;
     border: 1px solid lightgray;
+    background-color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-right: 20%;

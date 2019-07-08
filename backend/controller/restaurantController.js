@@ -28,7 +28,15 @@ exports.getRestaurantById = function (req, res) {
         .exec((error, data) => handleErrorData(error, data, res));
 };
 
-exports.createRestaurant = function (requestBody, res) {
+exports.createRestaurant = function (req, res) {
+
+    let requestBody = req.body
+
+    console.log('Got request:')
+    console.log(req3)
+
+    console.log('Got body:')
+    console.log(requestBody)
 
     let address = new Address({
         city: requestBody.address.city,

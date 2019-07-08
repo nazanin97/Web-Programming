@@ -24,19 +24,20 @@ function AppRouter() {
                 
             </a>
             <li id="login">   
-                <Link to="/restaurants">ورود</Link>
+                <Link to="/login">ورود</Link>
             </li>
             <li id="register">
                 <Link to="/register">عضویت</Link>
             </li>
             <li id="help">
-                <a>راهنما</a>
+                <Link to="/restaurants">راهنما</Link>
             </li>
             <div></div>
         </ul>
        
 			<div>
                 <Route path="/" exact component={MainPage} />
+                <Route path="/login" exact component={Login} />
                 <Route path="/restaurants" exact component={AllRestaurants} />
                 <Route path="/register" exact component={Register} />
                 <Route path="/restaurant/:id" exact component={Page3} />
